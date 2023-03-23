@@ -1,16 +1,18 @@
-# Duocmatico (En construccion 🚧)
+# Duocmatico
 
-Hola! Este repo es una especie de app para ayudar a planear tu horario para los semestres.
+## Sobre Duocmatico
 
-Ojo! la idea de esto no es que la app tome ramos por ti. Solamente ayudamos a organizar mejor tu horario para que puedas ver como va quedando con los ramos que seleccionas.
+> **Ojo:** Esta aplicacion esta pensada para poder planificar tu horario. Duocmatico no realizara la toma de ramos por ti.
 
-## ⚠️ Importante
+Duocmatico nace como una aplicacion por los alumnos de Duoc UC para poder ayudar a los mismos alumnos a planificar mejor que ramos tomar en sus semestres. Pudiendo asi estar mejor preparados al momento de tener que tomar sus respectivos ramos.
 
 Este proyecto esta siendo actualmente desarrollado por alumnos y no es algo que sea parte de la institucion.
 
-**Si estas usando esta aplicacion actualmente, puede ser que tengas que volver a subir el archivo de los cursos entre las releases**. Esto debido a que aun estamos mejorando la conversion de los datos y quizas necesitemos leer otra vez la informacion del excel con los cursos disponibles.
+## Reconocimiento📝
 
-# Documentacion
+La mayoria de la documentacion de este proyecto esta basada en la documentacion de Laravel.
+
+Most of this project documentation is based on [Laravel's own documentation][laravel]. Thanks for Laravel Taylor.
 
 ## Transformacion de datos
 
@@ -111,7 +113,7 @@ El formato en como se guardan los datos lo puedes encontrar [aqui](#transformaci
 
 Este dato se guarda _unicamente_ si tu lo deseas. En conjunto con los datos del archivo cargado, se usa para mostrar los ramos correspondiente a tu carrera cada vez que entres a Duocmatico
 
-# Estructura en Firebase
+## Estructura en Firebase
 
 Dentro de firebase, tenemos varias opciones a organizar los datos. En bases no relacionales, suelen preferirse _big collections and small documents_.
 
@@ -121,22 +123,22 @@ Para contextualizar un poco mas esta decision, vamos a tomar como ejemplo la car
 
 Teniendo una estructura similar a la siguiente:
 
-```
+```batch
 cargas-academicas/
 ├─2022-2 SAN-JOAQUIN
 │ ├─INGENIERIA EN INFORMATICA/
-│ │ ├─Seccion 1
-│ │ ├─Seccion 2
+│ │ ├─Seccion-1
+│ │ ├─Seccion-2
 ...
-│ │ └─Seccion 185
+│ │ └─Seccion-185
 │ │
 │ └─Carrera 2/
-│   ├─Seccion 1
-│   ├─Seccion 2
+│   ├─Seccion-1
+│   ├─Seccion-2
 ...
-│   └-Seccion N
+│   └-Seccion-N
 ├─2022-2 PUENTE-ALTO
-│ ├─Carrera 1/
+│ ├─Carrera-1/
 ...
 ```
 
@@ -175,14 +177,14 @@ Esto deja la opcion de que aproximadamente 270 alumnos de ingenieria en informat
 
 Ahora, existe la opcione de tener _not so small documents_ y generar documentos con las carreras que tengan **todas las secciones como un atributo**. dejando asi la misma estructura anterior, pero eliminando las secciones como documento.
 
-```
+```batch
 cargas-academicas/
 ├─2022-2 SAN-JOAQUIN
 │ └─carreras/
-│   ├─Carrera 1
-│   ├─Carrera 2
+│   ├─Carrera-1
+│   ├─Carrera-2
 ...
-│   └─Carrera N
+│   └─Carrera-N
 │
 └─2022-2 PUENTE-ALTO
 ```
@@ -219,3 +221,5 @@ Estructura de los documentos de carreras
 ```
 
 Es importante destacar que esta implementacion hace la transferencia de datos un poco mas costosa. Ya que todas las secciones de una carrera se almacenan dentro de un mismo documento.
+
+[laravel]: https://laravel.com/docs/9.x/
