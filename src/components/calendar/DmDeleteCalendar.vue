@@ -23,25 +23,25 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+  import { mapActions } from "vuex";
 
-export default {
-  name: "DmDeleteCalendar",
+  export default {
+    name: "DmDeleteCalendar",
 
-  props: {
-    calendar: Object,
-  },
-
-  methods: {
-    ...mapActions("calendars", ["deleteCalendar"]),
-    confirmDelete() {
-      if (this.calendar) {
-        this.deleteCalendar(this.calendar).then(() => {
-          this.$store.dispatch("calendars/getApiCalendars");
-          this.$emit("deleted-successfully");
-        });
-      }
+    props: {
+      calendar: Object,
     },
-  },
-};
+
+    methods: {
+      ...mapActions("calendars", ["deleteCalendar"]),
+      confirmDelete() {
+        if (this.calendar) {
+          this.deleteCalendar(this.calendar).then(() => {
+            this.$store.dispatch("calendars/getCalendars");
+            this.$emit("deleted-successfully");
+          });
+        }
+      },
+    },
+  };
 </script>
